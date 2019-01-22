@@ -8,7 +8,7 @@ namespace SEx
 {
     using TransitionFunc = Func<State, State>;
 
-    class Machine
+    class Executor
     {
         public State State { get; private set; } = new State();
 
