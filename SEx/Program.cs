@@ -10,6 +10,15 @@ namespace SEx
     {
         static void Main(string[] args)
         {
+            Executor executor = new Executor();
+            Tracer tracer = new Tracer();
+            executor.StateChanged += tracer;
+
+            executor.Step();
+            executor.Step();
+            executor.Step();
+            executor.Step();
+
         }
     }
 }

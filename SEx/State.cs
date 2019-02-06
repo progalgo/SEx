@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SEx
 {
-    struct State : IEquatable<State>
+    public struct State : IEquatable<State>
     {
-        public int count;
-        public int @switch;
+        public int Count { get; set; }
+        public int Switch { get; set; }
 
         public override bool Equals(object obj)
         {
@@ -18,15 +19,15 @@ namespace SEx
 
         public bool Equals(State other)
         {
-            return count == other.count &&
-                   @switch == other.@switch;
+            return Count == other.Count &&
+                   Switch == other.Switch;
         }
 
         public override int GetHashCode()
         {
             var hashCode = -703402107;
-            hashCode = hashCode * -1521134295 + count.GetHashCode();
-            hashCode = hashCode * -1521134295 + @switch.GetHashCode();
+            hashCode = hashCode * -1521134295 + Count.GetHashCode();
+            hashCode = hashCode * -1521134295 + Switch.GetHashCode();
             return hashCode;
         }
 
@@ -38,6 +39,20 @@ namespace SEx
         public static bool operator !=(State state1, State state2)
         {
             return !(state1 == state2);
+        }
+
+        public override string ToString()
+        {
+            Type myType = GetType();
+            var obj = this;
+            var props = myType.GetProperties();
+
+            object val(PropertyInfo info)
+            {
+                return new KeyValuePair<string, object>(info.Name, info.GetValue(obj));
+            }
+
+            return string.Join(", ", props.Select(val));
         }
     }
 }
