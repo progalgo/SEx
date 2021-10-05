@@ -14,7 +14,7 @@ namespace SEx
 
         public override bool Equals(object obj)
         {
-            return obj is State && Equals((State)obj);
+            return obj is State state && Equals(state);
         }
 
         public bool Equals(State other)

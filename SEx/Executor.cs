@@ -14,7 +14,7 @@ namespace SEx
 
         public Ruleset Ruleset { get; } = new Ruleset();
 
-        public TransitionFunc TransitionFunc { get { return Ruleset; } }
+        public TransitionFunc TransitionFunc => Ruleset;
 
         public event EventHandler<EventArgs> StateChanged;
 
