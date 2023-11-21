@@ -25,20 +25,20 @@ namespace SEx
 
         public override int GetHashCode()
         {
-            var hashCode = -703402107;
+            int hashCode = -1518498491;
             hashCode = hashCode * -1521134295 + Count.GetHashCode();
             hashCode = hashCode * -1521134295 + Switch.GetHashCode();
             return hashCode;
         }
 
-        public static bool operator ==(State state1, State state2)
+        public static bool operator ==(State left, State right)
         {
-            return state1.Equals(state2);
+            return left.Equals(right);
         }
 
-        public static bool operator !=(State state1, State state2)
+        public static bool operator !=(State left, State right)
         {
-            return !(state1 == state2);
+            return !(left == right);
         }
 
         public override string ToString()
