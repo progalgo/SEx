@@ -7,7 +7,7 @@ namespace SEx
 
     class Ruleset
     {
-        readonly Dictionary<int, TransitionFunc> rules = new Dictionary<int, TransitionFunc>
+        readonly Dictionary<int, TransitionFunc> rules = new()
         {
             { 1, (a) => { return new State { Count = a.Count + 1, Switch = 2 }; } },
             { 2, (a) => { return new State { Count = a.Count - 1, Switch = 1 }; } }

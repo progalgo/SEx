@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SEx
 {
     class Tracer
     {
-        private void WriteState(State state)
+        private static void WriteState(State state)
         {
             Console.WriteLine($"New state: {state}");
         }

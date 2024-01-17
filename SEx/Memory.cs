@@ -1,23 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SEx
+﻿namespace SEx
 {
-    class Memory
+    class Memory(uint size)
     {
-        readonly byte[] bytes;
-
-        public Memory(uint size)
-        {
-            bytes = new byte[size];
-        }
+        private readonly byte[] bytes = new byte[size];
 
         public byte? Read(uint address)
         {
-            return address < bytes.Length ? bytes[address] : (byte?)null;
+            return address < bytes.Length ? bytes[address] : null;
         }
     }
 }

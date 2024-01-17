@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SEx
 {
@@ -12,23 +10,20 @@ namespace SEx
         public int Count { get; set; }
         public int Switch { get; set; }
 
-        public override bool Equals(object obj)
+        public override readonly bool Equals(object obj)
         {
             return obj is State state && Equals(state);
         }
 
-        public bool Equals(State other)
+        public readonly bool Equals(State other)
         {
             return Count == other.Count &&
                    Switch == other.Switch;
         }
 
-        public override int GetHashCode()
+        public override readonly int GetHashCode()
         {
-            int hashCode = -1518498491;
-            hashCode = hashCode * -1521134295 + Count.GetHashCode();
-            hashCode = hashCode * -1521134295 + Switch.GetHashCode();
-            return hashCode;
+            return HashCode.Combine(Count, Switch);
         }
 
         public static bool operator ==(State left, State right)

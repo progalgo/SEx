@@ -1,24 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SEx;
 
-namespace SEx
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Executor executor = new Executor();
-            Tracer tracer = new Tracer();
-            executor.StateChanged += tracer;
+Executor executor = new();
+Tracer tracer = new();
+executor.StateChanged += tracer;
 
-            executor.Step();
-            executor.Step();
-            executor.Step();
-            executor.Step();
-
-        }
-    }
-}
+executor.Step();
+executor.Step();
+executor.Step();
+executor.Step();
